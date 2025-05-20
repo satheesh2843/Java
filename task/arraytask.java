@@ -13,9 +13,11 @@ public class arraytask {
     }
     static void largestelement(int[]a,int n){
         int max=a[0];
+
         for(int i=0;i<n;i++)
             if(a[i]>max)
                 max=a[i];
+
         System.out.println(max);
     }
     static void smallestelement(int[]a,int n){
@@ -39,17 +41,25 @@ public class arraytask {
             System.out.println(a[i]);
     }
     static void removeduplicate(int a[],int n){
+
         for(int i=0;i<n;i++){
             for(int j=i+1;j<n;j++){
                 if(a[i]==a[j]){
-                    for(int k=j;k<n-1;k++)
-                        a[k]=a[k+1];
+                    for(int k=j;k<n-1;k++) {
+                        a[k] = a[k + 1];
+
+                        for (int ii = 0; ii < n; ii++) {
+                            System.out.print(a[ii] + " ");
+                        }
+                    }
                     n--;
                 }
             }
         }
-        for(int i=0;i<n;i++)
-            System.out.print(a[i]+" ");
+//        for(int i=0;i<a.length;i++)
+//            System.out.print("originl"+a[i]+" ");
+//        for(int i=0;i<n;i++)
+//            System.out.print(a[i]+" ");
     }
     static void reversestring(String ss){
         int l=ss.length();
@@ -125,7 +135,6 @@ public class arraytask {
         else
             System.out.println("all number are negative");
 
-
     }
     static char nonrepeatingcharacter(String ss){
         char []s=ss.toCharArray();
@@ -133,7 +142,6 @@ public class arraytask {
         for(int i=0;i<l;i++){
             p=0;
             for(int j=0;j<l;j++){
-
                 if(s[i]==s[j] && i!=j)
                     p=1;
             }
@@ -157,7 +165,7 @@ public class arraytask {
 
         //sortarray(a,n);
 
-        //removeduplicate(a,n);
+        removeduplicate(a,n);
 
 //        String s=sc.next();
 //        reversestring(s);
