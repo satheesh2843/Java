@@ -25,7 +25,7 @@ public class strings {
         System.out.println(s.substring(5));
 
         //6. same as before this keyword used to separte the string from the specific index values
-        System.out.println(s.substring(5,21));
+        System.out.println(s.substring(5,15));
 
         // 10. " equal" keword to check the two string are equal or not
         // it's output is in bollean value ---> true or false
@@ -33,7 +33,7 @@ public class strings {
         String pp="Equal";
         System.out.println(p.equals(pp));
 
-        String em="b";
+        String em="";
         // 11. "isEmpty" this keyword used to check the string contains value or it's an empty string
         // it's output is in bollean value ---> true or false
         System.out.println(em.isEmpty());
@@ -55,7 +55,7 @@ public class strings {
         System.out.println(com.equalsIgnoreCase(comp));
 
         //18. "indent" this keyword used to give space in the beginning of the string
-        System.out.println(s.indent(7));
+        System.out.println(s.indent(17));
 
 
         //19. "indexof" this keyword used to  find the specific character of the string and return first index value
@@ -84,6 +84,10 @@ public class strings {
         System.out.println(s.trim());
 
 //        System.out.println(s.valueof());6ty+
+
+        int inde=5;
+        System.out.println(inde+5);
+
 
     }
 }
