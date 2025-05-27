@@ -13,6 +13,7 @@ public class house {
         obj.room_no();
     }
     public static void main(String[] args) {
+
         show();
     }
 }

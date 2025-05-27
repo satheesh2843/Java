@@ -4,6 +4,7 @@ public class university {
 
     class department{
         static void print(String dep_name){
+
             System.out.println(dep_name);
         }
     }
