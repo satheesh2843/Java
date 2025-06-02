@@ -36,7 +36,7 @@ public class demo {
 
 class demo2 extends demo{
     public static void main(String[] args) {
-        System.out.println(s);
+//        System.out.println(s);
     }
 }
 
