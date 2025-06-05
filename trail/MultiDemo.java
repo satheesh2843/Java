@@ -21,17 +21,18 @@ public class MultiDemo extends Thread {
             System.out.println("Main Thread");
         }
 
-//        System.out.println(ob.getState());
-//        System.out.println(ob.getName());
-//        Thread t1 = new Thread("Second Thread");
-//        System.out.println(t1.getName());
-//        t1.setName("2 Thread");
-//        System.out.println(t1.getName());
+        System.out.println(ob.getState());
+        System.out.println(ob.getName());
+        Thread t1 = new Thread("Second Thread");
+        System.out.println(t1.getName());
+        t1.setName("2 Thread");
+        System.out.println(t1.getName());
 
-//        System.out.println(Thread.currentThread().getName());
-//   Thread.currentThread().setName("Root Thread");
-//        System.out.println(Thread.currentThread().getName());
-//        System.out.println(ob.getState());
+        System.out.println(Thread.currentThread().getName());
+        Thread.currentThread().setName("Root Thread");
+        System.out.println(Thread.currentThread().getName());
+
+        System.out.println(ob.getState()+"--");
 
 //        int a = 10/0;
     }
@@ -108,7 +109,7 @@ class Thread3 implements Runnable{
         {
             System.out.println("Main Thread");
         }
-        System.out.println(t1.getState());
+        System.out.println(t1.getState()+"-->");
     }
 }
 
