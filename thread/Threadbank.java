@@ -7,7 +7,8 @@
 //    }
 //}
 //class  Gpay extends Thread{
-//    synchronized double gpay(double balance,double amount)throws InsufficentBalance{
+//
+//    public void run(){
 //        if(balance>=amount)
 //            return balance-=amount;
 //        else
