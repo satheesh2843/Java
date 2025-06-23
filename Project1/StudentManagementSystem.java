@@ -1,8 +1,4 @@
 package Project1;
-
-
-
-import javax.xml.namespace.QName;
 import java.io.*;
 import java.util.Scanner;
 class InvalidDegreeMEntion extends Exception{
@@ -62,15 +58,61 @@ class Student extends Studentdetails{
     }
     void read() throws IOException {
         FileReader fr1 = new FileReader("C:\\course\\File1.txt");
-
         int a;
         while((a = fr1.read()) != -1)
         {
             char b = (char)a;
             System.out.print(b);
         }
-
         fr1.close();
+    }
+    void search(String s){
+        int p=0,k=0;
+        System.out.println("Please Wait searching!!!");
+        try{
+            Thread.sleep(2000);
+        }catch (Exception e){
+            System.out.println("hi");
+        }
+        for(int i=1;i<index;i++){
+            p=0;
+            if(Studentname[i].equals(s)){
+                p=1;
+                k++;
+            }
+            if (k==1){
+                System.out.println("The result founded successfully\nStudentId\tStudentName\tStudentDegree\tStudentMark");
+                k++;
+            }
+            if(p==1){
+                System.out.println(Studentid[i]+"\t"+Studentname[i]+"\t"+Studentdegree[i]+"\t"+Studentmark[i]);
+            }
+        }
+        if(k==0) System.out.println("No result founded");
+    }
+    void search(int p){
+        int pp=0,k=0;
+        System.out.println("Please Wait searching!!!");
+        try{
+            Thread.sleep(2000);
+        }catch (Exception e){
+            System.out.println("hi");
+        }
+        for(int i=1;i<index;i++){
+            pp=0;
+            if(Studentmark[i]==p){
+                pp=1;
+                k++;
+            }
+            if (k==1){
+                System.out.println("The result founded successfully\nStudentId\tStudentName\tStudentDegree\tStudentMark");
+                k++;
+            }
+            if(pp==1)
+                System.out.println(Studentid[i]+"\t"+Studentname[i]+"\t"+Studentdegree[i]+"\t"+Studentmark[i]);
+
+        }
+        if(k==0) System.out.println("No result founded");
     }
 
 }
@@ -82,7 +124,6 @@ class Ug {
     void Addstudent(String degree, String Name, int mark){
         ob.Addstudent("UG", Name, mark);
     }
-
 }
 class Pg{
     Student ob;
@@ -93,7 +134,6 @@ class Pg{
         ob.Addstudent("PG", Name, mark);
     }
 }
-
 class StudentManagementSystem extends Student{
     public static void main(String[] args) throws Exception {
 
@@ -102,7 +142,6 @@ class StudentManagementSystem extends Student{
         Pg obj3=new Pg(obj1);
         System.out.println("Hi, We have multiple option to perform student details updates");
         System.out.print("1. Add student \n2. Search Student \n3. Diplay student detials \n4.Save file\n5.Show file data\n6. Exit\n\nYour choise--> ");
-
         Scanner sc=new Scanner(System.in);
 
         while (true){
@@ -110,8 +149,7 @@ class StudentManagementSystem extends Student{
             if(choice==1){
                 System.out.println("If you like to add a student!! \n\t !!! Mention the degree UG or PG !!! ");
                 String degree=sc.next();
-                degree=degree.toUpperCase();
-                if(degree.equals("UG")){
+                if(degree.equalsIgnoreCase("UG")){
                     System.out.print("Enter Student name --> ");
                     String name=sc.next();
                     System.out.print("Enter UG mark of "+name+" --> ");
@@ -119,12 +157,11 @@ class StudentManagementSystem extends Student{
                     if(mark<0 || mark>100) throw new Invalid_MARK_mention("!! INVALID MARK !!!");
                     obj2.Addstudent("UG",name,mark);
                 }
-                else if(degree.equals("PG")){
+                else if(degree.equalsIgnoreCase("pG")){
                     System.out.print("Enter Student name --> ");
                     String name=sc.next();
 
                     System.out.print("Enter PG mark of "+name+" --> ");
-
                     int mark=sc.nextInt();
                     if(mark<0 || mark>100) throw new Invalid_MARK_mention("!! INVALID MARK !!!");
                     obj3.Addstudent("PG",name,mark);
@@ -135,25 +172,25 @@ class StudentManagementSystem extends Student{
             }
 
             else if(choice ==2){
+                System.out.println("Enter name or mark to search");
+                String indetify=sc.next();
+                try{
+                    int p=Integer.parseInt(indetify);
+                    obj1.search(p);
+                }catch (NumberFormatException e){
+                    obj1.search(indetify);
+                }
+            }
+            else if(choice==3) obj1.display();
 
-            }
-            else if(choice==3){
-                obj1.display();
-            }
+            else if(choice==4) obj1.file();
 
-            else if(choice==4){
-                obj1.file();
-            }
-            else if(choice==5){
-                obj1.read();
-            }
-            else if (choice==6){
-                break;
-            }
+            else if(choice==5) obj1.read();
 
-            else{
+            else if (choice==6) break;
+
+            else
                 System.out.println("\t\t--- !!!you entered wrong option!!! ---");
-            }
 
             System.out.print("\n\n1. Add student \n2. Search Student \n3. Diplay student detials \n4.Save file\n5.Show file data\n6. Exit\n\nYour choise--> ");
         }
